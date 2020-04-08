@@ -14,8 +14,8 @@ ResultView.setup = function(el) {
 
 //검색 결과 보여주기
 ResultView.render = function(data = []) {
-    console.log(tag, 'render()', data)
     this.el.innerHTML = data.length ? this.getSearchResultsHtml(data) : this.message.NO_RESULT
+    this.show()
 }
 
 ResultView.getSearchResultsHtml = function(data) {
@@ -27,7 +27,7 @@ ResultView.getSearchResultsHtml = function(data) {
 
 ResultView.getSearchItemHtml = function(item) {
     return `<li>
-    <img src="${item.image}">
+    <img src="${item.image}" />
     <p>${item.name}</p>
     </li>`
 }

@@ -37,7 +37,6 @@ export default {
     if(this.selectedTab === '추천 검색어') {
       this.fetchSearchKeyword()
       
-      
     } else {
 
     }
@@ -54,6 +53,7 @@ export default {
   },
 
   search(query) {
+    FormView.setValue(query)
     console.log(tag, 'search()', query)
     //search api 
     SearchModel.list(query).then(data => {
@@ -70,6 +70,7 @@ export default {
     console.log('onResetForm')
     //검색 화면 초기화 하기 (검색 결과 없애기)
     ResultView.hide()
+    this.renderView() //원래 있던 tab 다시 렌더링
   },
 
   onSearchResult(data) {
