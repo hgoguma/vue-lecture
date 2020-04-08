@@ -18,7 +18,7 @@ FormView.showResetBtn = function(show = true) {
 }
 
 FormView.bindEvents = function() {
-    this.on('submit', e => e.preventDefault())
+    this.on('submit', e => e.preventDefault()) 
     this.inputEl.addEventListener('keyup', e => this.onKeyup(e))
     this.resetEl.addEventListener('click', e => this.onClickReset(e))
 }
