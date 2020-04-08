@@ -30,6 +30,8 @@ export default {
   },
   onResetForm() {
     console.log('onResetForm')
+    //검색 화면 초기화 하기 (검색 결과 없애기)
+    ResultView.hide()
   },
   onSearchResult(data) {
     ResultView.render(data)
