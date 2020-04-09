@@ -31,6 +31,7 @@ KeywordView.render = function(data = []) {
     //DOM 객체 생성 후에 이벤트 바인딩하기!
     this.bindClickEvent()
     this.show()
+    return this
 }
 
 KeywordView.getKeywordsHtml = function(data) {

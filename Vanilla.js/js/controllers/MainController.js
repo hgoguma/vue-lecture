@@ -27,6 +27,7 @@ export default {
 
     HistoryView.setup(document.querySelector('#search-history'))
       .on('@click', e => this.onClickHistory(e.detail.keyword))
+      .on('@remove', e => this.onRemoveHistory(e.detail.keyword))
 
     ResultView.setup(document.querySelector('#search-result'))
     this.selectedTab = '최근 검색어'
@@ -58,7 +59,7 @@ export default {
 
   fetchSearchHistory() {
     HistoryModel.list().then(data => {
-      HistoryView.render(data)
+      HistoryView.render(data).bindRemoveBtn() //DOM 생성 후 이벤트 바인딩하기!
     })
   },
 
@@ -100,5 +101,11 @@ export default {
 
   onClickHistory(keyword) {
     this.search(keyword)
+  },
+
+  onRemoveHistory(keyword) {
+    //실제 데이터 삭제
+    HistoryModel.remove(keyword)
+    this.renderView() //다시 화면 보여주기
   }
 }
