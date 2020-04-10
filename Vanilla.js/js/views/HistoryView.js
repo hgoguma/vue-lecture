@@ -31,9 +31,4 @@ HistoryView.onRemove = function(keyword) {
     this.emit('@remove', { keyword })
 }
 
-HistoryView.insertKeyword = function(keyword) {
-    console.log('insertKeyword')
-    console.log(keyword)
-}
-
 export default HistoryView
