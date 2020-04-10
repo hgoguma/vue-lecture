@@ -25,16 +25,12 @@ new Vue({
         this.fetchHistory()
     },
     methods: {
-        onSubmit(e) {
+        onSubmit(query) {
+            this.query = query //자식 컴포넌트에서 받아온 값으로 셋팅
             this.search() //검색 호출
         },
         onReset(e) {
             this.resetForm()
-        },
-        onKeyup() {
-            if(!this.query.length) {
-                this.onReset()
-            }
         },
         search() {
             SearchModel.list().then(data => {
