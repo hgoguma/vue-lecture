@@ -64,6 +64,7 @@ export default {
 
   search(query) {
     FormView.setValue(query)
+    HistoryModel.add(query)
     console.log(tag, 'search()', query)
     //search api 
     SearchModel.list(query).then(data => {

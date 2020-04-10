@@ -8,7 +8,7 @@ TabView.setup = function(el) {
     console.log('tabview setup')
     this.init(el)
     this.bindClick()
-    return this
+    return this  //setup() 호출 후 바로 인스턴스의 메소드를 호출! 메소드 체이닝
 }
 
 TabView.setActiveTab = function(tabName) {
