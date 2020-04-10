@@ -2,6 +2,8 @@ import SearchModel from './models/SearchModel.js'
 import KeywordModel from './models/KeywordModel.js'
 import HistoryModel from './models/HistoryModel.js'
 
+import FormComponent from './components/FormComponent.js'
+
 new Vue({
     el: '#app', //vue 인스턴스가 어느 부분에 마운팅 될지 설정
     data : {
@@ -12,6 +14,9 @@ new Vue({
         keywords: [], //추천 검색어
         history: [], //최근 검색어
         searchResult: [], //검색 결과
+    },
+    components: {
+        'search-form' : FormComponent,
     },
     //created : vue 인스턴스가 생성될 때 호출되는 함수
     created() {
