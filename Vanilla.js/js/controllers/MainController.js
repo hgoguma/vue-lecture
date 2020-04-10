@@ -30,24 +30,24 @@ export default {
       .on('@remove', e => this.onRemoveHistory(e.detail.keyword))
 
     ResultView.setup(document.querySelector('#search-result'))
-    this.selectedTab = '최근 검색어'
+    this.selectedTab = '추천 검색어'
     this.renderView()
-
   },
 
   renderView() {
     console.log('renderView')
+    console.log(this.selectedTab)
     TabView.setActiveTab(this.selectedTab)
 
     //현재 탭에 따라서 렌더링 결과 보여주기
     if(this.selectedTab === '추천 검색어') {
       this.fetchSearchKeyword()
+      HistoryView.hide()
     } else {
       this.fetchSearchHistory()
+      KeywordView.hide()
     }
-    
     ResultView.hide()
-    
   },
   
   //데이터 가져오기
@@ -90,8 +90,9 @@ export default {
     ResultView.render(data)
   },
 
-  onChangeTag() {
-    ResultView.show()
+  onChangeTag(tabName) {
+    this.selectedTab = tabName
+    this.renderView()
   },
 
   onClickKeyword(keyword) {

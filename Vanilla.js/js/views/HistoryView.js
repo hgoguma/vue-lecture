@@ -19,7 +19,6 @@ HistoryView.getKeywordsHtml = function(data) {
 }
 
 HistoryView.bindRemoveBtn = function() {
-    console.log('bindClickEvent')
     Array.from(this.el.querySelectorAll('button.btn-remove')).forEach(btn => {
         btn.addEventListener('click', e => {
             e.stopPropagation()
@@ -29,7 +28,7 @@ HistoryView.bindRemoveBtn = function() {
 }
 
 HistoryView.onRemove = function(keyword) {
-    this.emit('@remove', keyword)
+    this.emit('@remove', { keyword })
 }
 
 export default HistoryView

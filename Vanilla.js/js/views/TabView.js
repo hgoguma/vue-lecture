@@ -12,9 +12,12 @@ TabView.setup = function(el) {
 }
 
 TabView.setActiveTab = function(tabName) {
+    //console.log('setActiveTab')
+    //console.log(tabName)
     Array.from(this.el.querySelectorAll('li')).forEach(li => {
-        li.className = li.innerHTML === tabName ? 'active' : ''
+        li.className = li.innerHTML === tabName ?  'active' : ''
     })
+    this.show()
 }
 
 TabView.bindClick = function() {
@@ -24,6 +27,8 @@ TabView.bindClick = function() {
 }
 
 TabView.onClick = function(tabName) {
+    //console.log('tab onclick!!')
+    //console.log(tabName)
     this.setActiveTab(tabName)
     this.emit('@change', tabName) //탭이 변경되었음을 컨트롤러에게 알려주기
 }
