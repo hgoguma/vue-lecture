@@ -6,6 +6,13 @@ new Vue({
         query: '', //입력 데이터 받아서 저장
         submitted: false, //검색 여부
         searchResult: [], //검색 결과
+        tabs: ['추천 검색어', '최근 검색어'],
+        selectedTab : '',
+        keyword: [],
+    },
+    //created : vue 인스턴스가 생성될 때 호출되는 함수
+    created() {
+        this.selectedTab = this.tabs[0]
     },
     methods: {
         onSubmit(e) {
@@ -31,5 +38,8 @@ new Vue({
             this.submitted = false
             this.searchResult = []
         },
+        onClickTab(tab) {
+            this.selectedTab = tab
+        }
     }
 })

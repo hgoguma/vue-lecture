@@ -17,6 +17,7 @@
         <input type="text" v-model="query" v-on:keyup="onKeyup" placeholder="검색어를 입력하세요" autofocus>
         <button v-show="query.length" v-on:click="onReset" type="reset" class="btn-reset"></button>
       </form>
+      <!--검색 결과-->
       <div v-if="submitted">
         <div v-if="searchResult.length">
           <ul>
@@ -30,6 +31,24 @@
           {{query}} 검색어로 찾을 수 없습니다
         </div>
       </div>
+      <!--tab-->
+      <div v-else="submitted">
+        <ul class="tabs">
+          <li v-for="tab in tabs" v-bind:class="{active : tab === selectedTab}" v-on:click="onClickTab(tab)">
+            {{tab}}
+          </li>
+        </ul>
+
+
+        <div v-if="selectedTab === tabs[0]">
+          추천 검색어 목록
+        </div>
+        <div v-else>
+          최근 검색어 목록
+        </div>
+      </div>
+
+      
       
     </div>
   </div>
