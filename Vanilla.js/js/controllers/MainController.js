@@ -36,7 +36,6 @@ export default {
 
   renderView() {
     console.log('renderView')
-    console.log(this.selectedTab)
     TabView.setActiveTab(this.selectedTab)
 
     //현재 탭에 따라서 렌더링 결과 보여주기
