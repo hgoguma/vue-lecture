@@ -2,11 +2,12 @@ export default {
     template: '#search-form',
     data() {
         return {
-            query: '',
+            query: ''
         }
     },
     methods: {
         onSubmit() {
+            this.$emit('@submit', this.inputValue.trim()) //$emit : 자식 -> 부모
 
         },
         onKeyup() {

@@ -16,7 +16,7 @@ new Vue({
         searchResult: [], //검색 결과
     },
     components: {
-        'search-form' : FormComponent,
+        'search-form': FormComponent
     },
     //created : vue 인스턴스가 생성될 때 호출되는 함수
     created() {
