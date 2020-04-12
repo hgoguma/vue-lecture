@@ -5,6 +5,8 @@ import HistoryModel from './models/HistoryModel.js'
 import FormComponent from './components/FormComponent.js'
 import ResultComponent from './components/ResultComponent.js'
 import ListComponent from './components/ListComponent.js'
+import TabComponent from './components/TabComponent.js'
+
 
 
 
@@ -23,6 +25,7 @@ new Vue({
         'search-form': FormComponent,
         'search-result': ResultComponent,
         'list': ListComponent,
+        'tabs': TabComponent,
     },
     //created : vue 인스턴스가 생성될 때 호출되는 함수
     created() {
@@ -75,6 +78,6 @@ new Vue({
             HistoryModel.remove(keyword)
             this.fetchHistory()
         },
-        
+
     }
 })

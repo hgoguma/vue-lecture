@@ -24,13 +24,7 @@
         </div>
         <!--tab-->
         <div v-else="submitted">
-          <ul class="tabs">
-            <li v-for="tab in tabs" v-bind:class="{active : tab === selectedTab}" v-on:click="onClickTab(tab)">
-              {{tab}}
-            </li>
-          </ul>
-
-
+          <tabs v-bind:tabs="tabs" v-bind:selected-tab="selectedTab" v-on:@change="onClickTab"></tabs>
           <div v-if="selectedTab === tabs[0]">
             <list v-bind:data="keywords" type="keywords" v-on:@click="onClickKeyword"></list>
           </div>
@@ -86,4 +80,12 @@
   <div v-else>
     추천 검색어가 없습니다
   </div>
+</template>
+
+<template id="tabs">
+  <ul class="tabs">
+    <li v-for="tab in tabs" v-bind:class="{active : tab === selectedTab}" v-on:click="onClickTab(tab)">
+      {{tab}}
+    </li>
+  </ul>
 </template>
