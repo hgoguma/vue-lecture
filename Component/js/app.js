@@ -3,6 +3,10 @@ import KeywordModel from './models/KeywordModel.js'
 import HistoryModel from './models/HistoryModel.js'
 
 import FormComponent from './components/FormComponent.js'
+import ResultComponent from './components/ResultComponent.js'
+import ListComponent from './components/ListComponent.js'
+
+
 
 new Vue({
     el: '#app', //vue 인스턴스가 어느 부분에 마운팅 될지 설정
@@ -16,7 +20,9 @@ new Vue({
         searchResult: [], //검색 결과
     },
     components: {
-        'search-form': FormComponent
+        'search-form': FormComponent,
+        'search-result': ResultComponent,
+        'list': ListComponent,
     },
     //created : vue 인스턴스가 생성될 때 호출되는 함수
     created() {
@@ -69,6 +75,6 @@ new Vue({
             HistoryModel.remove(keyword)
             this.fetchHistory()
         },
-
+        
     }
 })
