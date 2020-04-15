@@ -78,6 +78,5 @@ new Vue({
             HistoryModel.remove(keyword)
             this.fetchHistory()
         },
-
     }
 })
