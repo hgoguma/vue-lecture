@@ -9,7 +9,6 @@
     <div class="content">
       <!--검색 결과-->
       <div v-if="submitted">
-        <!--search-result 검색 결과 넘겨주기-->
         <search-result v-bind:data="searchResult" v-bind:query="query"></search-result> 
       </div>
       <!--tab-->
@@ -22,10 +21,7 @@
           <list v-bind:data="history" type="history" 
                 v-on:@click="onClickKeyword" v-on:@remove="onClickRemoveHistory" ></list>
         </div>
-
-        
       </div>
-
     </div>
   </div>
 </template>
@@ -110,7 +106,6 @@ export default {
         HistoryModel.remove(keyword)
         this.fetchHistory()
     },
-
-    }
+  }
 }
 </script>
